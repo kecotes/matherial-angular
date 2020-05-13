@@ -1,5 +1,5 @@
 import { Component, OnInit, inject, Inject } from '@angular/core';
-import {CustomerService } from '../../services/customer.service';
+import {CustomerService } from '../../services/driver.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'formModal',

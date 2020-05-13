@@ -1,4 +1,4 @@
-export interface DriverI {
+/*export interface DriverI {
     driving_license: string;
     email: string;
     identification_document: string;
@@ -13,6 +13,17 @@ export interface DriverI {
     status_driving_license: number;
     status_identification_document: number;
     status_profile_picture: number;
+    surnames: string;
+    token: string;
+    user_blocking: boolean;
+
+  }*/
+
+  export interface DriverI {
+    email: string;
+    mobile_phone: string;
+    names: string;
+    profile_picture: string;
     surnames: string;
     token: string;
     user_blocking: boolean;
