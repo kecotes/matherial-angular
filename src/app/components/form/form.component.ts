@@ -1,5 +1,5 @@
 import { Component, OnInit, inject, Inject } from '@angular/core';
-import {CustomerService } from '../../services/driver.service';
+import {DriverService } from '../../services/driver.service';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'formModal',
@@ -9,26 +9,28 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class FormComponent implements OnInit {
 
   //Aqui inyectamos 
-  constructor(public customer:CustomerService,
+  constructor(public driver:DriverService,
     //Esto es una instancia
     private dialogRef: MatDialogRef<FormComponent>,
-    @Inject(MAT_DIALOG_DATA) data ) { }
+    @Inject(MAT_DIALOG_DATA) data 
+    ) { }
 
   ngOnInit(): void {
   }
 
   onSaveForm(){
-    if(this.customer.selected.id == null){
+    this.driver.editDriver(this.driver.selected);
+    /*if(this.driver.selected.id == null){
       //new
-      let newCustomer = {
-        name: this.customer.selected.name,
-        city: this.customer.selected.city,
-        order: this.customer.selected.order
+      let newDriver = {
+        name: this.driver.selected.name,
+        city: this.driver.selected.city,
+        order: this.driver.selected.order
       }
-      this.customer.addCustomer(newCustomer);
+      this.driver.addDriver(newCustomer);
     }else{
-    this.customer.editCustomer(this.customer.selected);
-    }
+    this.driver.editDriver(this.driver.selected);
+    //}*/
     this.close();
   }
 

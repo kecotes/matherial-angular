@@ -14,7 +14,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-//import { FormComponent } from './components/form/form.component';
+import { FormComponent } from './components/form/form.component';
 
 import { FormsModule } from '@angular/forms';
   import { from } from 'rxjs';
@@ -24,7 +24,7 @@ import { MainNavComponent } from './main-nav/main-nav.component';
   declarations: [
     AppComponent,
     ListDriversComponent,
-    //FormComponent,
+    FormComponent,
     ToolbarComponent,
     MainNavComponent
   ],

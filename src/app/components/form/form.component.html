@@ -1,0 +1,18 @@
+<div class="container">
+    <mat-form-field>
+        <input matInput placeholder="Name" name="names" [(ngModel)]="this.driver.selected.names">
+    </mat-form-field>
+    <!-- {{this.customer.selected | json }} -->
+    <mat-form-field>
+        <input matInput placeholder="License" name="status_driving_license" [(ngModel)]="this.driver.selected.status_driving_license">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Identification Document" name="status_identification_document" [(ngModel)]="this.driver.selected.status_identification_document">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Profile Picture" name="status_profile_picture" [(ngModel)]="this.driver.selected.status_profile_picture">
+    </mat-form-field>
+    <button mat-flat-button color="primary" (click)="onSaveForm()">
+        <mat-icon>save</mat-icon>Save
+    </button>
+</div>

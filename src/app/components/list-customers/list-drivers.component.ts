@@ -4,7 +4,7 @@ import { DriverI } from '../../../models/driver.interface';
 import { DriverService } from '../../services/driver.service';
 import { MatSort } from '@angular/material/sort';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-//import { FormComponent } from '../form/form.component';
+import { FormComponent } from '../form/form.component';
 @Component({
   selector: 'ListDrivers',
   templateUrl: './list-drivers.component.html',
@@ -12,7 +12,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 })
 export class ListDriversComponent implements OnInit {
 
-  displayedColumns: string[] = ['names', 'email', 'mobile_phone', 'profile_picture','actions']; //La tabla tiene estas 4 columas
+  displayedColumns: string[] = ['names', 'status_driving_license', 'status_identification_document', 'status_profile_picture','actions']; //La tabla tiene estas 4 columas
   dataSource = new MatTableDataSource(); // Aqui se crea el objeto tabla y se alimenta del array de arriba
   @ViewChild(MatSort,{read:true, static:false}) sort: MatSort;
 
@@ -24,7 +24,6 @@ export class ListDriversComponent implements OnInit {
   ngOnInit(): void {
     this.driverService.getAllCustomers()
     .subscribe(res => this.dataSource.data = res);
-    console.log(this.dataSource.data);
   }
 
   ngAfterViewInit(){
@@ -37,20 +36,20 @@ export class ListDriversComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  /*onEdit(element){ 
+  onEdit(element){ 
     this.resetForm();
     this.openModal();
     if(element){
-    this.customerService.selected = element;
+    this.driverService.selected = element;
     }
    }
-
+   
   onDelete(id: string) {
-    //Aqui llamamos el servicio Customer, luego podemos accesar a todos us metodos
+    //Aqui llamamos el servicio Driver, luego podemos accesar a todos us metodos
     //Y accesamos al metodo delete y como este es un metodo le podemos mandar un parametro id
-    this.customerService.deleteCustomer(id);
+    this.driverService.deleteDriver(id);
    }
-
+   
    openModal(): void{
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = { 
@@ -61,10 +60,10 @@ export class ListDriversComponent implements OnInit {
    }
 
    resetForm(): void{
-     this.customerService.selected.name = '';
-     this.customerService.selected.city = '';
-     this.customerService.selected.order = '';
-     this.customerService.selected.id = null;
-   }*/
+     this.driverService.selected.name = '';
+     this.driverService.selected.city = '';
+     this.driverService.selected.order = '';
+     this.driverService.selected.id = null;
+   }
 
 }

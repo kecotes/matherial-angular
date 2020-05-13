@@ -19,7 +19,7 @@ export class DriverService {
   //  longitude: 0
   //};
   
-  /*public selected = {
+  public selected = {
     id: null,
     name: '',
     city: '',
@@ -32,7 +32,7 @@ export class DriverService {
       latitude: 0,
       longitude: 0
     },
-    location_date: '0000-00-00',
+    location_date: '',
     mobile_phone: '',
     names: '',
     profile_picture: '',
@@ -44,21 +44,11 @@ export class DriverService {
     surnames: '',
     token: '',
     user_blocking: false
-  };*/
-
-  public selected = {
-    email: '',
-    mobile_phone: '',
-    names: '',
-    profile_picture: '',
-    surnames: '',
-    token: '',
-    user_blocking: ''
   };
 
   constructor(private readonly afs:AngularFirestore) {
     //Por medio de estos metodos recuperamos la colleccion y luego iteramos sobre cada uno de los documentos
-    this.driverCollection = afs.collection<DriverI>('Environment/tests/users');
+    this.driverCollection = afs.collection<DriverI>('Environment/tests/drivers');
     //db.collection('rooms').doc('roomA').collection('messages').doc('message1');
     this.drivers = this.driverCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => {
@@ -74,14 +64,15 @@ export class DriverService {
     return this.drivers;
   }
 
-  /*editCustomer(customer: CustomerID){
-    return this.customerCollection.doc(customer.id).update(customer);
+  editDriver(driver: DriverID){
+    return this.driverCollection.doc(driver.id).update(driver);
+    //return this.driverCollection.doc('tests').collection('drivers').doc(driver.id).update(driver);
   }
-
-  deleteCustomer(id: string){
-    return this.customerCollection.doc(id).delete();
+  
+  deleteDriver(id: string){
+    return this.driverCollection.doc(id).delete();
   }
-
+  /*
   addCustomer(customer:CustomerI){
     return this.customerCollection.add(customer);
   }*/
